@@ -14,8 +14,9 @@ public class Book {
             }
         }
         return temp;
+    }
 
-
+    public Book() {
     }
 
     public Book(String name, int page) {
