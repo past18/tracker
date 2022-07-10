@@ -12,9 +12,14 @@ public class StartUI {
             System.out.println("Select:");
             int select = Integer.parseInt(scanner.nextLine());
 
-            if (select != 6) {
-                System.out.println("User selected: " + select);
-            } else {
+            if (select == 0) {
+                System.out.println("=== Create a new Item ===");
+                System.out.print("Enter name: ");
+                String name = scanner.nextLine();
+                Item item = new Item(name);
+                tracker.add(item);
+                System.out.println("Ticket: " + item);
+            } else if (select == 6) {
                 run = false;
             }
         }
