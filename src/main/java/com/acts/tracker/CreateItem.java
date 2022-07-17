@@ -1,19 +1,24 @@
 package com.acts.tracker;
 
 public class CreateItem implements UserActions {
+    private final Output out;
+
+    public CreateItem(Output out) {
+        this.out=out;
+    }
 
     @Override
     public String name() {
-        return "Add new Item" ;
+        return "Add new Item";
     }
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Create a new Item ===");
+        out.println("=== Create a new Item ===");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
         tracker.add(item);
-        System.out.println("Ticket: " + item);
+        out.println("Ticket: " + item);
         return true;
     }
 }

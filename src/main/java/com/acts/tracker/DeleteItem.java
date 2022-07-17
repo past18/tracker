@@ -1,6 +1,12 @@
 package com.acts.tracker;
 
-public class DeleteItem implements UserActions{
+public class DeleteItem implements UserActions {
+    private final Output out;
+
+    public DeleteItem(Output out) {
+        this.out = out;
+    }
+
     @Override
     public String name() {
         return "Delete item";
@@ -8,12 +14,12 @@ public class DeleteItem implements UserActions{
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Delete item ===");
+        out.println("=== Delete item ===");
         int id = input.askInt("Enter id: ");
         if (tracker.delete(id)) {
-            System.out.println("Application deleted successfully.");
+            out.println("Application deleted successfully.");
         } else {
-            System.out.println("Request delete error.");
+            out.println("Request delete error.");
         }
         return true;
     }
